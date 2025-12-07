@@ -26,7 +26,7 @@ int main(){
     cout<<"how many nums?"<<endl;
     cin>>n;
 
-    //瑕佸厛涓篴鏁扮粍鍒嗛厤鍐呭瓨
+    //要先为a数组分配内存
     int *a=new int[n];
 
     
