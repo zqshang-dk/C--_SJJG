@@ -16,6 +16,7 @@ void HeapSort(int *a,int n){
 
         while((2*p+1)<n){
             int child = 2 * p + 1;
+
             if((2*p+2)<n && a[2*p+2]>a[2*p+1]){
                 child += 1;
             }
@@ -23,11 +24,11 @@ void HeapSort(int *a,int n){
             if(tmp>a[child]){
                 break;   //如果父亲结点大于儿子节点
             }
-
-            a[p] = a[child];
-            p = child;    //继续向下调整
+            else{
+                a[p] = a[child];
+                p = child;    //继续向下调整
+            }
         }
-
         a[p] = tmp;
     }
 
@@ -41,9 +42,40 @@ void HeapSort(int *a,int n){
 
         while((2*p+1)<i){
             int child = 2 * p + 1;
-            if((2*p+2)<n && a[2*p+1]<a[2*p+2]){
-                
+            if((2*p+2)<i && a[2*p+1]<a[2*p+2]){    //这个地方一定是小于i而不是小于n
+                child+=1;
             }
+            if(tmp>a[child]){
+                break;
+            }
+
+            else{
+                a[p] = a[child];
+                p = child;
+            }
+            a[p] = tmp;
         }
     }
+}
+
+
+int main(){
+    int n;
+    cin >> n;
+
+    int *a = new int[n];
+
+    for (int i = 0; i < n;i++){
+        cin >> a[i];
+    }
+
+    HeapSort(a, n);
+
+    for (int i = 0; i < n;i++){
+        cout << a[i] << " ";
+    }
+    cout << endl;
+
+    delete[] a;
+    return 0;
 }
