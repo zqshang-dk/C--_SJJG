@@ -1,24 +1,24 @@
 /*
----------------é¢˜ç›®æè¿°å¼€å§‹---------------
-é¢˜ç›®ï¼š
-åˆ©ç”¨æ ˆå°†ä¸€ä¸ªä¸­ç¼€è¡¨è¾¾å¼è½¬æ¢ä¸ºåŽç¼€è¡¨è¾¾å¼ï¼Œå¹¶è®¡ç®—è¯¥åŽç¼€è¡¨è¾¾å¼çš„å€¼
-å®žçŽ°å‡½æ•°void PostExp(const string& expstr, string& pexpstr)
-å°†å­—ç¬¦ä¸²expsträ¸­çš„ä¸­ç¼€è¡¨è¾¾å¼ï¼Œè½¬æ¢ä¸ºåŽç¼€è¡¨è¾¾å¼ï¼Œæ”¾å…¥å­—ç¬¦ä¸²pexpsträ¸­
+---------------ÌâÄ¿ÃèÊö¿ªÊ¼---------------
+ÌâÄ¿£º
+ÀûÓÃÕ»½«Ò»¸öÖÐ×º±í´ïÊ½×ª»»Îªºó×º±í´ïÊ½£¬²¢¼ÆËã¸Ãºó×º±í´ïÊ½µÄÖµ
+ÊµÏÖº¯Êývoid PostExp(const string& expstr, string& pexpstr)
+½«×Ö·û´®expstrÖÐµÄÖÐ×º±í´ïÊ½£¬×ª»»Îªºó×º±í´ïÊ½£¬·ÅÈë×Ö·û´®pexpstrÖÐ
 
 
-æœ¬é¢˜å¯ä»¥ä½¿ç”¨STLä¸­çš„stackå®¹å™¨ç±»
+±¾Ìâ¿ÉÒÔÊ¹ÓÃSTLÖÐµÄstackÈÝÆ÷Àà
 
-è¾“å…¥æ ¼å¼ï¼š
-ä¸­ç¼€è¡¨è¾¾å¼å­—ç¬¦åºåˆ—
+ÊäÈë¸ñÊ½£º
+ÖÐ×º±í´ïÊ½×Ö·ûÐòÁÐ
 
-è¾“å‡ºæ ¼å¼
-åŽç¼€è¡¨è¾¾å¼å­—ç¬¦åºåˆ—
-æ•°æ®1 
+Êä³ö¸ñÊ½
+ºó×º±í´ïÊ½×Ö·ûÐòÁÐ
+Êý¾Ý1 
 
----------------é¢˜ç›®æè¿°ç»“æŸ---------------
+---------------ÌâÄ¿ÃèÊö½áÊø---------------
 */
 
-//åœ¨ä¸‹æ–¹å†™å‡ºç¨‹åºåº”è¯¥åŒ…å«çš„å¤´æ–‡ä»¶
+//ÔÚÏÂ·½Ð´³ö³ÌÐòÓ¦¸Ã°üº¬µÄÍ·ÎÄ¼þ
 
 
 //#include _________
@@ -28,36 +28,36 @@
 #include<stack>
 using namespace std;
 
-//å‚æ•°ï¼šexpstr--è¾“å…¥çš„ä¸­ç¼€è¡¨è¾¾å¼ï¼›pexpstr---è¾“å‡ºçš„åŽç¼€è¡¨è¾¾å¼
+//²ÎÊý£ºexpstr--ÊäÈëµÄÖÐ×º±í´ïÊ½£»pexpstr---Êä³öµÄºó×º±í´ïÊ½
 void PostExp(const string& expstr, string& pexpstr)
 {
-    stack<char> opor;  //è¿ç®—ç¬¦æ ˆï¼Œç”¨äºŽæš‚å­˜è¿ç®—ç¬¦
-    char ch;           //å½“å‰è¯»å–çš„å­—ç¬¦
-    int i = 0;         //éåŽ†ç´¢å¼•
+    stack<char> opor;  //ÔËËã·ûÕ»£¬ÓÃÓÚÔÝ´æÔËËã·û
+    char ch;           //µ±Ç°¶ÁÈ¡µÄ×Ö·û
+    int i = 0;         //±éÀúË÷Òý
 
-    //éåŽ†ä¸­ç¼€è¡¨è¾¾å¼çš„æ¯ä¸ªå­—ç¬¦
+    //±éÀúÖÐ×º±í´ïÊ½µÄÃ¿¸ö×Ö·û
     while(i<expstr.length()){
-        ch = expstr[i];    //èŽ·å–å½“å‰å­—ç¬¦
+        ch = expstr[i];    //»ñÈ¡µ±Ç°×Ö·û
 
-        //æƒ…å†µä¸€ï¼šé‡åˆ°â€˜ï¼ˆâ€™ï¼Œå·¦æ‹¬å·ç›´æŽ¥å…¥æ ˆ
+        //Çé¿öÒ»£ºÓöµ½¡®£¨¡¯£¬×óÀ¨ºÅÖ±½ÓÈëÕ»
         if(ch=='('){
             opor.push(ch);
         }
 
-        //æƒ…å†µ2ï¼šé‡åˆ°â€˜ï¼‰â€™
+        //Çé¿ö2£ºÓöµ½¡®£©¡¯
         else if (ch==')'){
-            //å°†æ ˆä¸­ç›´åˆ°å·¦æ‹¬å·çš„æ‰€æœ‰è¿ç®—ç¬¦å¼¹å‡ºå¹¶æ·»åŠ åˆ°åŽç¼€è¡¨è¾¾å¼
+            //½«Õ»ÖÐÖ±µ½×óÀ¨ºÅµÄËùÓÐÔËËã·ûµ¯³ö²¢Ìí¼Óµ½ºó×º±í´ïÊ½
             while(!opor.empty() && opor.top()!='('){
                 pexpstr += opor.top();
                 opor.pop();
             }
-            opor.pop();//å¼¹å‡ºå·¦æ‹¬å·ä½†ä¸æ·»åŠ åˆ°åŽç¼€è¡¨è¾¾å¼
+            opor.pop();//µ¯³ö×óÀ¨ºÅµ«²»Ìí¼Óµ½ºó×º±í´ïÊ½
         }
 
-        //æƒ…å†µ3ï¼šé‡åˆ°+-æ³•
+        //Çé¿ö3£ºÓöµ½+-·¨
         else if(ch=='+'||ch=='-'){
-            //å°†æ ˆä¸­æ‰€æœ‰ä¼˜å…ˆçº§é«˜äºŽæˆ–ç­‰äºŽå½“å‰è¿ç®—ç¬¦çš„è¿ç®—ç¬¦å¼¹å‡º
-            //ç›´åˆ°é‡åˆ°å·¦æ‹¬å·æˆ–æ ˆä¸ºç©º
+            //½«Õ»ÖÐËùÓÐÓÅÏÈ¼¶¸ßÓÚ»òµÈÓÚµ±Ç°ÔËËã·ûµÄÔËËã·ûµ¯³ö
+            //Ö±µ½Óöµ½×óÀ¨ºÅ»òÕ»Îª¿Õ
             while(!opor.empty() && opor.top()!='('){
                 pexpstr += opor.top();
                 opor.pop();
@@ -65,7 +65,7 @@ void PostExp(const string& expstr, string& pexpstr)
             opor.push(ch);
         }
 
-        //æƒ…å†µ4ï¼šé‡åˆ°*/æ³•
+        //Çé¿ö4£ºÓöµ½*/·¨
         else if(ch=='*'|| ch=='/'){
             while(!opor.empty()&&opor.top()!='('){
                 pexpstr += opor.top();
@@ -134,7 +134,7 @@ int calc(const string& pexpstr){
 
 int main() {
 
-    //--------------ä¸è¦ä¿®æ”¹main()å‡½æ•°ä¸­çš„å†…å®¹----------------------
+    //--------------²»ÒªÐÞ¸Ämain()º¯ÊýÖÐµÄÄÚÈÝ----------------------
     
     string exp, pexp;
     
